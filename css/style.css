@@ -1,199 +1,265 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #FFD1B0;
-    overflow-x: hidden;
-    color: #333;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #FFD1B0, #ffe6d5);
+  color: #333;
+  overflow-x: hidden;
 }
 
+/* CONTAINER */
 .container {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 5% 10%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
 }
 
-/* --- Dekorasi Background (Belah Ketupat) --- */
-.shape {
-    position: absolute;
-    z-index: -1;
-    background: linear-gradient(135deg, #f39c12, #e67e22);
-    border-radius: 20px;
-    transform: rotate(45deg);
-}
-
-.shape-1 { width: 150px; height: 150px; top: -50px; left: 45%; opacity: 0.8; }
-.shape-2 { width: 100px; height: 100px; top: 180px; left: 35%; opacity: 0.2; }
-.shape-3 { width: 80px; height: 80px; bottom: 50px; left: 33%; opacity: 0.3; }
-.shape-4 { 
-    width: 400px; height: 400px; 
-    bottom: -150px; right: -50px; 
-    opacity: 1; 
-    border-radius: 60px;
-}
-
-.shape {
-    position: absolute;
-    z-index: -1;
-    background: linear-gradient(135deg, #f39c12, #e67e22);
-    border-radius: 20px;
-    transform: rotate(45deg);
-}
-
-.shape-1 { width: 150px; height: 150px; top: -50px; left: 45%; opacity: 0.8; }
-.shape-2 { width: 100px; height: 100px; top: 180px; left: 35%; opacity: 0.2; }
-.shape-3 { width: 80px; height: 80px; bottom: 50px; left: 33%; opacity: 0.3; }
-.shape-4 { 
-    width: 400px; height: 400px; 
-    bottom: -150px; right: -50px; 
-    opacity: 1; 
-    border-radius: 60px;
-}
-/* --- Bagian Kiri (Teks) --- */
+/* HERO */
 .hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 200%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
 }
 
+/* TEXT */
 .content {
-    flex: 1;
+  flex: 1;
+  animation: fadeLeft 1s ease forwards;
 }
 
 .brand-name {
-    font-family: 'Fredoka One', cursive;
-    font-size: 80px;
-    color: #e67e22;
-    -webkit-text-stroke: 1px #8a531d;
-    margin-bottom: 10px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 70px;
+  color: #e67e22;
+  letter-spacing: 2px;
 }
 
 .tagline {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    color: #555;
-    max-width: 400px;
-    padding-bottom: 25px !important;
+  margin: 20px 0;
+  line-height: 1.7;
+  max-width: 420px;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.3s;
 }
 
+/* BUTTON */
 .btn-order {
-    display: inline-block;
-    padding: 15px 45px;
-    background: linear-gradient(to bottom, #ff9f43, #ee5253);
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 8px;
-    box-shadow: 0 4px 0 #b33939;
-    transition: transform 0.2s;
+  display: inline-block;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #ff9f43, #ee5253);
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 6px 0 #b33939;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.6s;
 }
 
 .btn-order:hover {
-    transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.05) !important;
 }
 
-/* --- Bagian Kanan (Gambar) --- */
+/* IMAGE */
 .image-gallery {
-    flex: 1;
-    position: relative;
-    display: flex;
-    justify-content: center;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  animation: fadeRight 1.2s ease forwards;
 }
 
-.main-image img {
-    width: 350px;
-    height: 350px;
-    object-fit: cover;
-    border-radius: 50px;
-    background-color: #eee;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+.main-image {
+  position: relative;
+  z-index: 2;
 }
 
+/* SIDE IMAGE */
 .side-image {
-    position: absolute;
-    right: -150px;
-    top: -100px;
+  position: absolute;
+  right: -120px;
+  top: -60px;
+  opacity: 0;
+  animation: fadeRight 1.2s ease forwards;
+  animation-delay: 0.5s;
+  z-index: 1;
 }
 
 .side-image img {
-    width: 300px;
-    height: 450px;
-    object-fit: cover;
-    border-radius: 100px 0 0 100px;
+  width: 280px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 100px 0 0 100px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  animation: floatSide 5s ease-in-out infinite;
+  transition: 0.5s;
 }
 
-/* --- Footer --- */
+.shape {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+  animation: floatShape 10s ease-in-out infinite alternate;
+}
+
+/* Variasi posisi */
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  background: #ff9f43;
+  top: -100px;
+  left: -100px;
+}
+
+.shape-2 {
+  width: 200px;
+  height: 200px;
+  background: #ee5253;
+  bottom: 50px;
+  right: 0;
+}
+
+.shape-3 {
+  width: 150px;
+  height: 150px;
+  background: #feca57;
+  top: 40%;
+  left: 20%;
+}
+
+/* OBJECT DECOR */
+.decor {
+  position: absolute;
+  z-index: -1;
+  opacity: 0.6;
+  animation: floatObject 8s ease-in-out infinite;
+}
+
+/* Lingkaran besar blur */
+.decor-1 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, #ff9f43, transparent);
+  top: 10%;
+  left: -80px;
+  filter: blur(40px);
+}
+
+/* Blob unik */
+.decor-2 {
+  width: 200px;
+  height: 200px;
+  background: #ee5253;
+  top: 60%;
+  right: -80px;
+  border-radius: 60% 40% 30% 70%;
+  filter: blur(30px);
+}
+
+/* Kotak rotate */
+.decor-3 {
+  width: 120px;
+  height: 120px;
+  background: #feca57;
+  bottom: 100px;
+  left: 30%;
+  transform: rotate(45deg);
+  border-radius: 20px;
+  opacity: 0.4;
+}
+
+/* Lingkaran kecil */
+.decor-4 {
+  width: 80px;
+  height: 80px;
+  background: #ff6b6b;
+  top: 30%;
+  right: 25%;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+/* Hover effect biar hidup */
+.side-image img:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+.image-gallery img {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 40px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  animation: float 4s ease-in-out infinite;
+}
+
+/* MENU */
+.menu-container {
+  margin-top: 80px;
+}
+
+.menu-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+/* CARD */
+.menu-card {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: all 0.4s ease;
+  transform: translateY(30px);
+  opacity: 0;
+  animation: cardAppear 0.8s ease forwards;
+}
+
+.menu-card:nth-child(1) { animation-delay: 0.2s; }
+.menu-card:nth-child(2) { animation-delay: 0.4s; }
+.menu-card:nth-child(3) { animation-delay: 0.6s; }
+
+.menu-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.menu-card img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  transition: 0.4s;
+}
+
+.menu-card:hover img {
+  transform: scale(1.05);
+}
+
+/* FOOTER */
 .footer {
-    position: absolute;
-    bottom: 30px;
-    right: 50px;
-    text-align: right;
-    color: white;
+  text-align: center;
+  margin-top: 80px;
+  font-size: 14px;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 1s;
 }
 
-.footer p { font-size: 18px; font-weight: 300; }
-.footer span { font-weight: 600; display: block; font-size: 22px; }
+/* ===== ANIMATIONS ===== */
 
-/* Responsif Sederhana */
-@media (max-width: 768px) {
-    .container { flex-direction: column; text-align: center; }
-    .side-image { display: none; }
-    .brand-name { font-size: 60px; }
-    .tagline { margin: 0 auto 30px; }
-}
-
-/* 1. Definisi Keyframes */
-
-/* Efek muncul dari bawah ke atas dengan transparansi */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Efek muncul dari kiri ke kanan */
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* Efek scale untuk elemen dekorasi */
-@keyframes popIn {
-    0% {
-        opacity: 0;
-        transform: rotate(45deg) scale(0.5);
-    }
-    70% {
-        transform: rotate(45deg) scale(1.1);
-    }
-    100% {
-        opacity: 1;
-        transform: rotate(45deg) scale(1);
-    }
-}
-
-/* Animasi Muncul */
-@keyframes fadeInUp {
+@keyframes fadeUp {
   from {
     opacity: 0;
     transform: translateY(30px);
@@ -204,153 +270,74 @@ body {
   }
 }
 
-.content {
-  animation: fadeInUp 1s ease-out;
-}
-
-.image-gallery {
-  animation: fadeInUp 1.2s ease-out;
-}
-
-/* 2. Menerapkan Animasi ke Elemen */
-
-.content {
-    animation: fadeInLeft 1s ease-out forwards;
-}
-
-.brand-name {
-    animation: fadeInLeft 0.8s ease-out forwards;
-}
-
-.tagline {
-    animation: fadeInLeft 1s ease-out 0.2s forwards; /* Delay 0.2 detik */
-    opacity: 0; /* Mulai dari transparan */
-}
-
-.btn-order {
-    animation: fadeInUp 0.8s ease-out 0.5s forwards;
+@keyframes fadeLeft {
+  from {
     opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.main-image {
-    animation: fadeInUp 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s forwards;
+@keyframes fadeRight {
+  from {
     opacity: 0;
-    z-index: 5;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.side-image {
-    animation: fadeInLeft 1.5s ease-out 0.6s forwards;
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes cardAppear {
+  from {
     opacity: 0;
-    z-index: 4;
+    transform: translateY(40px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
-.shape {
-    animation: popIn 1s ease-out forwards;
-    opacity: 0;
+@keyframes floatSide {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px) translateX(-5px); }
+  100% { transform: translateY(0px); }
 }
 
-/* Memberikan delay berbeda pada tiap shape agar lebih dinamis */
-.shape-1 { animation-delay: 0.1s; }
-.shape-2 { animation-delay: 0.3s; }
-.shape-3 { animation-delay: 0.5s; }
-.shape-4 { animation-delay: 0.7s; }
-
-.footer {
-    animation: fadeInUp 1s ease-out 1s forwards;
-    opacity: 0;
+@keyframes floatShape {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(40px, 60px); }
 }
 
-/* Styling Dasar Objek */
-.shape {
-    position: absolute;
-    z-index: -1;
-    background: linear-gradient(135deg, #f39c12, #e67e22);
-    border-radius: 40px; /* Membuat sudut lebih tumpul/round */
-    transform: rotate(45deg);
+@keyframes floatObject {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
 }
 
-/* Objek ATAS (yang terpotong di bagian atas) */
-.shape-1 { 
-    width: 220px; 
-    height: 220px; 
-    top: -110px; /* Naikkan lebih tinggi agar terpotong */
-    left: 45%; 
-    border-radius: 60px; /* Lebih bulat */
-    background: #f39c12;
-}
-
-/* Objek TENAH (kecil agak pudar) */
-.shape-2 { 
-    width: 120px; 
-    height: 120px; 
-    top: 250px; 
-    left: 33%; 
-    opacity: 0.8;
-    background: linear-gradient(135deg, #ffbd4a, #f39c12);
-    border-radius: 35px;
-}
-
-/* Objek BAWAH (dekat teks footer) */
-.shape-3 { 
-    width: 140px; 
-    height: 140px; 
-    bottom: 50px; 
-    left: 30%; 
-    opacity: 0.9;
-    border-radius: 45px;
-}
-
-/* Objek BESAR di Pojok Kanan Bawah */
-.shape-4 { 
-    width: 600px; 
-    height: 600px; 
-    bottom: -250px; 
-    right: -150px; 
-    border-radius: 120px; /* Sangat bulat di ujungnya */
-    background: #e67e22;
-    transform: rotate(35deg); /* Sedikit berbeda sudutnya agar dinamis */
-}
-
-.btn-order {
-    display: inline-block;
-    padding: 12px 25px;
-    background: linear-gradient(to bottom, #ff9f43, #ee5253);
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 8px;
-    box-shadow: 0 4px 0 #b33939;
-    transition: transform 0.5s ease !important;
-}
-
-.btn-order:hover {
-    transform: scale(1.1) !important;
-}
-
-/* Responsive */
+/* RESPONSIVE */
 @media (max-width: 768px) {
 
   .hero {
     flex-direction: column-reverse;
-    width: 100%;
     text-align: center;
-  }
-
-  .container {
-    padding: 10% 5%;
-}
-
-  .image-gallery {
-    margin-bottom: 20px;
-  }
-
-  .main-image img {
-    width: 250px;
-    height: 250px;
-  }
-
-  .side-image {
-    display: none;
   }
 
   .brand-name {
@@ -358,238 +345,30 @@ body {
   }
 
   .tagline {
-    margin: 0 auto 20px;
+    margin: 20px auto;
   }
 
-  .btn-order {
-    margin-top: 10px;
+  .image-gallery img {
+    width: 250px;
+    height: 250px;
   }
 
-  .shape-1 {
-    width: 120px;
-    height: 120px;
-    top: -60px;
+}
+
+@media (max-width: 768px) {
+  .side-image {
+    display: none;
   }
+}
 
-  .shape-2 {
-    width: 80px;
-    height: 80px;
+@media (max-width: 768px) {
+  .shape {
+    display: none;
   }
-
-  .shape-3 {
-    width: 90px;
-    height: 90px;
-  }
-
-  .shape-1,
-  .shape-2,
-  .shape-3 {
-    transform: scale(0.7);
-  }
-
-  .shape-4 {
-    width: 350px;
-    height: 350px; 
-
-    left: 20%;              
-    transform: translateX(-70%); 
-
-    bottom: -170px; 
-
-    border-radius: 50px; 
-  }
-
-@keyframes floating {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
 }
 
-.main-image img {
-  animation: floating 3s ease-in-out infinite;
-  border-radius: 20px; /* Opsional: membuat sudut gambar lebih halus */
-}
-.shape {
-  position: absolute;
-  filter: blur(50px);
-  z-index: -1;
-  opacity: 0.6;
-  animation: moveShapes 10s linear infinite alternate;
-}
-
-@keyframes moveShapes {
-  from { transform: translate(0, 0); }
-  to { transform: translate(20px, 50px); }
-}
-
-/* Container Utama */
-.menu-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    max-width: 100%;
-    margin: 0 auto;
-    padding-top: 70px !important;     
-}
-
-/* Wrapper untuk Scroll */
-.menu-wrapper {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory; /* Mengunci geseran */
-    scroll-behavior: smooth;
-    gap: 20px;
-    padding: 20px 40px;
-    scrollbar-width: none; /* Sembunyikan scrollbar di Firefox */
-}
-
-.menu-wrapper::-webkit-scrollbar {
-    display: none; /* Sembunyikan scrollbar di Chrome/Safari */
-}
-
-/* Card Menu Profesional */
-.menu-card {
-    min-width: 280px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    scroll-snap-align: center; /* Mengunci card di tengah */
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.menu-card:hover {
-    transform: scale(1.02);
-    background: rgba(255, 255, 255, 0.1);
-    border-color: #ffcc00;
-}
-
-.menu-img-container {
-    padding: 15px;
-}
-
-.menu-img-container img {
-    width: 100%;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-/* Tombol Navigasi */
-.nav-btn {
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    position: absolute;
-    z-index: 10;
-    transition: 0.3s;
-}
-
-.nav-btn.left { left: 5px; }
-.nav-btn.right { right: 5px; }
-.nav-btn:hover { background: #ffcc00; color: #000; }
-
-/* Indikator Titik */
-.dots-container {
-    margin-top: 20px;
-}
-
-.dot {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background: rgba(255,255,255,0.3);
-    border-radius: 50%;
-    margin: 0 5px;
-    transition: 0.3s;
-}
-
-.dot.active {
-    width: 20px;
-    border-radius: 10px;
-    background: #ffcc00;
-}
-
-/* --- Bagian Animasi Baru --- */
-
-/* 1. Definisi Keyframes untuk animasi muncul (Fade In & Slide Up) */
-@keyframes cardAppear {
-    from {
-        opacity: 0;
-        transform: translateY(30px) scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-/* 2. Styling Dasar Card (diperbarui) */
-.menu-card {
-    min-width: 280px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    scroll-snap-align: center;
-    
-    /* Menerapkan animasi muncul saat halaman dimuat */
-    animation: cardAppear 0.6s ease-out both;
-    
-    /* Transisi halus untuk SEMUA perubahan properti (transform, shadow, border) */
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    
-    /* Menambahkan sedikit bayangan dasar untuk kedalaman */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* 3. Efek Hover (untuk Desktop) */
-.menu-card:hover {
-    transform: translateY(-15px) scale(1.03); /* Sedikit naik dan membesar */
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 204, 0, 0.6); /* Warna kuning tipis pada border */
-    box-shadow: 0 20px 40px rgba(255, 204, 0, 0.15); /* Cahaya kuning lembut */
-}
-
-/* 4. Efek Magnify pada Gambar saat Hover */
-.menu-img-container img {
-    width: 100%;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); /* Transisi gambar terpisah */
-}
-
-.menu-card:hover .menu-img-container img {
-    transform: scale(1.05); /* Gambar membesar sedikit di dalam container */
-}
-
-/* 5. Memberikan delay animasi yang berbeda pada tiap card (opsional, untuk efek 'beruntun') */
-.menu-wrapper .menu-card:nth-child(1) { animation-delay: 0.1s; }
-.menu-wrapper .menu-card:nth-child(2) { animation-delay: 0.3s; }
-.menu-wrapper .menu-card:nth-child(3) { animation-delay: 0.5s; }
-
-
-/* --- Animasi Responsif untuk Mobile (Scroll Snap) --- */
-
-/* Menambahkan class 'active' yang akan dikontrol oleh JavaScript */
-.menu-card.active {
-    transform: scale(1);
-    opacity: 1;
-    border-color: #ffcc00;
-}
-
-/* Card yang tidak aktif akan sedikit mengecil dan pudar */
-.menu-wrapper:not(:hover) .menu-card:not(.active) {
-    transform: scale(0.9);
-    opacity: 0.5;
-}
-
-  .footer {
-    position: static; 
-    margin-top: 30%;
-    text-align: center;
+@media (max-width: 768px) {
+  .decor {
+    display: none;
   }
 }
